@@ -14,7 +14,7 @@ Dirstat is a DOS batch using PowerShell to execute.
 
 ## Installation
 
-Copy this repository or just the dirstat.bat into a directory of your choice.
+Copy this repository or just the `dirstat.bat` into a directory of your choice.
 
 Optionally add this directory to your `PATH` environment variable to have access to this script from every working path.
 
