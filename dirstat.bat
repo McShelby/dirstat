@@ -17,16 +17,16 @@ if not "%1"=="" (
 	) else if "!DIRSTAT_PARAMETER!"=="--help" (
 		set DIRSTAT_HELP=1
 	) else if "!DIRSTAT_PARAMETER!"=="-o" (
-		set DIRSTAT_ORDER=%2
+		set DIRSTAT_ORDER=%~2
 		shift
 	) else if "!DIRSTAT_PARAMETER!"=="--order" (
-		set DIRSTAT_ORDER=%2
+		set DIRSTAT_ORDER=%~2
 		shift
 	) else if "!DIRSTAT_PARAMETER!"=="-s" (
-		set DIRSTAT_SORT=%2
+		set DIRSTAT_SORT=%~2
 		shift
 	) else if "!DIRSTAT_PARAMETER!"=="--sort" (
-		set DIRSTAT_SORT=%2
+		set DIRSTAT_SORT=%~2
 		shift
 	) else if "!DIRSTAT_PARAMETER:~0,1!"=="-" (
 		echo Invalid parameter "!DIRSTAT_PARAMETER!"
@@ -37,8 +37,7 @@ if not "%1"=="" (
 		set DIRSTAT_RET=1
 		goto :DIRSTAT_END
 	) else (
-		set DIRSTAT_DIR=!DIRSTAT_PARAMETER!
-		shift
+		set DIRSTAT_DIR=%~1
 	)
 	shift
 	goto :DIRSTAT_PARAMETER_LOOP
@@ -90,7 +89,7 @@ echo     "characters" and "bytes" for their respective summed up values and
 echo     "/lines", "/words", "/characters" and "/bytes" for the average values
 echo     per file.
 echo   -h, --help
-echo     Displays this the help.
+echo     Displays this help.
 
 :DIRSTAT_END
 exit /b %DIRSTAT_RET%
